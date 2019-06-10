@@ -1,15 +1,15 @@
-%define		kdeframever	5.56
+%define		kdeframever	5.59
 %define		qtver		5.9.0
 %define		kfname		syndication
 
 Summary:	syndication
 Name:		kf5-%{kfname}
-Version:	5.56.0
+Version:	5.59.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	1d7c5865589f34626f6f093a39a5e85a
+# Source0-md5:	6ae961850a1b03864824b64b3b69699b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Network-devel >= 5.9.0
@@ -19,6 +19,7 @@ BuildRequires:	Qt5Xml-devel >= 5.9.0
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
 BuildRequires:	kf5-kcodecs-devel >= 5.53.0
+BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -49,15 +50,14 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 install -d build
 cd build
 %cmake \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %clean
 rm -rf $RPM_BUILD_ROOT
