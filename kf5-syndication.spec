@@ -17,8 +17,8 @@ BuildRequires:	Qt5Test-devel
 BuildRequires:	Qt5Widgets-devel >= 5.9.0
 BuildRequires:	Qt5Xml-devel >= 5.9.0
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
-BuildRequires:	kf5-kcodecs-devel >= 5.53.0
+BuildRequires:	kf5-extra-cmake-modules >= %{version}
+BuildRequires:	kf5-kcodecs-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
