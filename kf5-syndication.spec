@@ -1,15 +1,15 @@
-%define		kdeframever	5.67
+%define		kdeframever	5.80
 %define		qtver		5.9.0
 %define		kfname		syndication
 
 Summary:	syndication
 Name:		kf5-%{kfname}
-Version:	5.67.0
+Version:	5.80.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	59240be3b390227198e8d94f5ae87fe8
+# Source0-md5:	2c2bb7e94a188c9a39f030a5aabe8b31
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Network-devel >= 5.9.0
@@ -69,14 +69,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %{_datadir}/qlogging-categories5/syndication.categories
-%attr(755,root,root) %ghost %{_libdir}/libKF5Syndication.so.5
+%ghost %{_libdir}/libKF5Syndication.so.5
 %attr(755,root,root) %{_libdir}/libKF5Syndication.so.5.*.*
-
+%{_datadir}/qlogging-categories5/syndication.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/KF5/Syndication
 %{_includedir}/KF5/syndication_version.h
 %{_libdir}/cmake/KF5Syndication
-%attr(755,root,root) %{_libdir}/libKF5Syndication.so
+%{_libdir}/libKF5Syndication.so
 %{_libdir}/qt5/mkspecs/modules/qt_Syndication.pri
