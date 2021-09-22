@@ -1,5 +1,5 @@
 %define		kdeframever	5.86
-%define		qtver		5.9.0
+%define		qtver		5.15.2
 %define		kfname		syndication
 
 Summary:	syndication
@@ -11,18 +11,19 @@ Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	bae7c69e324292c3151567eddd838bb3
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Gui-devel >= 5.11.1
-BuildRequires:	Qt5Network-devel >= 5.9.0
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5Widgets-devel >= 5.9.0
-BuildRequires:	Qt5Xml-devel >= 5.9.0
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Xml-devel >= %{qtver}
+BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-kcodecs-devel >= %{version}
 BuildRequires:	ninja
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt5Core >= %{qtver}
+Requires:	Qt5Xml >= %{qtver}
 Requires:	kf5-dirs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
