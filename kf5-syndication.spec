@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.99
+%define		kdeframever	5.100
 %define		qtver		5.15.2
 %define		kfname		syndication
 
 Summary:	syndication
 Name:		kf5-%{kfname}
-Version:	5.99.0
-Release:	2
+Version:	5.100.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	fc5a1ba010c738e714fb334cf00ef4d9
+# Source0-md5:	5d101723de46c77c91cfd83317906ac4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Network-devel >= %{qtver}
